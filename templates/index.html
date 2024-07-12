@@ -1,0 +1,97 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<style>
+    .container{
+    margin: 0 10%;
+}
+
+.all__boxes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.big__box h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    text-align: center;
+}
+
+img{
+    width: 250px;
+    height: 350px;
+}
+
+
+.card__item{
+    border: 1px solid #848FAC;
+}
+
+.card__item__text{
+    text-align: center;
+}
+
+.menu{
+    color: #848FAC;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+
+.card__item__text h4{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+.cart{
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.image{
+    width: 250px;
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+}
+
+</style>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <!-- The Start -->
+            <div class="big__box">
+                <h3>Shopping</h3>
+                <div class="all__boxes">
+                    {% for card in cards %}
+                    <div class="mini__boxes">
+                        <div class="card__item">
+                            <div class="image"><img src="{{ card.image.url }}" alt=""></div>
+                            <div class="card__item__text">
+                                <h5 class="menu">{{ card.name }}</h5>
+                                <h4>${{ card.price }}</h4>
+                                <a href="{% url 'myapp:about' %}" class="cart">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>

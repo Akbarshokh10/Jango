@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    a{
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    h1{
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    p{
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    h2{
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 25px;
+        text-align: center;
+        margin-top: 15px 0;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <a href="{% url 'myapp:index' %}">Shopping</a>
+            {% for a in abouts %}
+            
+            <h1>{{ a.name }}</h1>
+            <p>{{ a.about }}</p>
+
+            <h2>{{ a.how_much }} Ta Qoldi</h2>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
